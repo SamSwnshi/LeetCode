@@ -4,7 +4,7 @@
  * @return {number[]}
  */
 var decrypt = function(code, k) {
-    let n = code.length;
+     let n = code.length;
     let ans = new Array(n).fill(0);
     for(let i = 0 ; i < n; i++){
         let sum = 0;
@@ -21,5 +21,4 @@ var decrypt = function(code, k) {
         
     }
     return ans;
-    
 };

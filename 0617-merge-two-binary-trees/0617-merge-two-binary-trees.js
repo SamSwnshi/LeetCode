@@ -1,4 +1,4 @@
-/**
+/*
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)
@@ -12,13 +12,27 @@
  * @return {TreeNode}
  */
 var mergeTrees = function(root1, root2) {
-    if(root1 === null || root2 === null){
-        return root1 || root2
-    }
-    const mergedNode = new TreeNode(root1.val + root2.val);
-   
-   mergedNode.left = mergeTrees(root1.left,root2.left)
-    mergedNode.right = mergeTrees(root1.right,root2.right)
+    if(!root1) return root2;
+    if(!root2) return root1
     
-    return mergedNode
+    const queue = [[root1,root2]]
+    while(queue.length > 0){
+        const [n1,n2] = queue.shift()
+        
+        n1.val += n2.val
+        
+        if(n1.left && n2.left){
+            queue.push([n1.left,n2.left])
+        }else if(!n1.left){
+            n1.left = n2.left
+        }
+        
+        if(n1.right && n2.right){
+            queue.push([n1.right,n2.right])
+        }else if(!n1.right){
+            n1.right = n2.right
+        }
+    }
+    
+    return root1
 };

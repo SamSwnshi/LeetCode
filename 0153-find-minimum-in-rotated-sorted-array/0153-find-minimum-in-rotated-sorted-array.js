@@ -3,18 +3,12 @@
  * @return {number}
  */
 var findMin = function(nums) {
-    let n = nums.length;
-    nums.sort((a,b)=> a -b )
-    let left = 0 ;
-    let right = n - 1;
-    while(left < right){
-        let mid = Math.floor((left+ right)/2)
-        if(nums[mid] > nums[right]){
-            left = mid + 1;
-            
-        }else{
-            right = mid
-        }
+    let min = nums[0]
+    let m = nums.length;
+    for(let i = 0; i <= m;i++){
+    if(nums[i] < min){
+        min = nums[i]
     }
-    return nums[left]
+    }
+return min;
 };

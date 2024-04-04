@@ -6,22 +6,25 @@ var setZeroes = function(matrix) {
     let row = matrix.length;
     let col = matrix[0].length;
     
-    let rowSet = new Set();
-    let colSet = new Set();
+    let rowS = new Set();
+    let colS = new Set();
     
-    for(let i = 0 ; i < row;i++){
-        for(let j = 0 ; j < col;j++){
-            if(matrix[i][j] == 0){
-                rowSet.add(i);
-                colSet.add(j)
+    for(let i = 0; i < row ;i++){
+        for(let j = 0; j < col; j++){
+            if(matrix[i][j] === 0){
+                rowS.add(i);
+                colS.add(j)
             }
         }
     }
+    
     for(let i = 0; i < row;i++){
-        for(let j= 0; j < col; j++){
-            if(rowSet.has(i) || colSet.has(j)){
+        for(let j =0 ; j < col;j++){
+            if(rowS.has(i) || colS.has(j)){
                 matrix[i][j] = 0
             }
         }
     }
+    
+    return matrix;
 };

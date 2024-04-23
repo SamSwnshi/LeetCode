@@ -11,19 +11,14 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-    if(!root) return 0;
-
-    const q = [root]
-        let ans = 0;
-    while(q.length !== 0){
-        ans++
-        let l = q.length;
-        for(let i = 0 ;i< l;i++){
-            if(q[i].left) q.push(q[i].left);
-            if(q[i].right) q.push(q[i].right)
-        }
-        q.splice(0,l)
-    }
-    return ans;
+    if(root === null) return root;
     
+    if(root.left === null){
+        return 1 + maxDepth(root.right)
+    }
+    if(root.right === null){
+        return 1 + maxDepth(root.left)
+    }
+    
+    return 1 + Math.max(maxDepth(root.left),maxDepth(root.right))
 };

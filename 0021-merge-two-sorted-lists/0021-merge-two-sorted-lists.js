@@ -19,5 +19,5 @@ var mergeTwoLists = function(list1, list2) {
     }else{
         list2.next = mergeTwoLists(list1,list2.next)
         return list2
-    }
+    } 
 };

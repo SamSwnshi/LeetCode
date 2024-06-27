@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubArray = function (nums) {
+var maxSubArray = function(nums) {
     let maxSum = -Infinity;
     let currSum = 0;
     let n = nums.length;
